@@ -10,8 +10,9 @@ import UIKit
 class ViewController: UIViewController {
     let myButton: UIButton = {
         let button = UIButton()
-        button.setTitle("GO", for: .application)
+        button.setTitle("My Button", for: .normal)
         button.configuration = .filled()
+        button.addTarget(self, action: #selector(myButtonTapped), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -31,6 +32,12 @@ private extension ViewController {
             myButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             myButton.centerYAnchor.constraint(equalTo: view.centerYAnchor)
         ])
+    }
+}
+
+@objc private extension ViewController {
+    func myButtonTapped() {
+        print("Button Tap!")
     }
 }
 
