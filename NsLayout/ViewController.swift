@@ -8,12 +8,29 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    let myButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("GO", for: .application)
+        button.configuration = .filled()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .red
+        setupScene()
+        makeConstrains()
     }
-
-
+}
+private extension ViewController {
+    func setupScene() {
+        view.backgroundColor = .gray
+        view.addSubview(myButton)
+    }
+    func makeConstrains() {
+        NSLayoutConstraint.activate([
+            myButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            myButton.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+        ])
+    }
 }
 
